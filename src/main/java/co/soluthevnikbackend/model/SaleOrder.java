@@ -17,6 +17,7 @@ public class SaleOrder{
 
     @Id
     @Column(name = "k_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long k_id;
 
     @ManyToOne @JoinColumn(name = "client_id")

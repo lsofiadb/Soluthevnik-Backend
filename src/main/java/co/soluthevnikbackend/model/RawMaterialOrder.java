@@ -16,6 +16,7 @@ import java.util.Date;
 public class RawMaterialOrder {
 
     @Id @Column(name = "k_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long k_id;
 
     @JoinColumn(name = "supplier_id") @ManyToOne
