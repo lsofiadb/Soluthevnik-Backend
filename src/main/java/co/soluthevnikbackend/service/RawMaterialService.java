@@ -20,4 +20,8 @@ public class RawMaterialService {
     public List<RawMaterial> getAll(){
         return rawMaterialRepository.findAll();
     }
+
+    public RawMaterial findById(Long id){
+        return rawMaterialRepository.findById(id).get();
+    }
 }

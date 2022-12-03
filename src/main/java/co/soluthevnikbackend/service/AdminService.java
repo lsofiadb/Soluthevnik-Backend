@@ -35,5 +35,9 @@ public class AdminService {
         }
     }
 
+    public Admin findById(Long id){
+        return adminRepository.findById(id).get();
+    }
+
 
 }

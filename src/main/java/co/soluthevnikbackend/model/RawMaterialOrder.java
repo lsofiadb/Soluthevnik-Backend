@@ -16,7 +16,7 @@ import java.util.Date;
 public class RawMaterialOrder {
 
     @Id @Column(name = "k_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long k_id;
 
     @JoinColumn(name = "supplier_id") @ManyToOne
@@ -28,7 +28,7 @@ public class RawMaterialOrder {
     @Column(name = "d_date")
     private Date d_date;
 
-    @Column(name = "v_total_price")
+    @Column(name = "v_total_price", nullable = true)
     private Double v_total_price;
 
 }

@@ -21,4 +21,8 @@ public class RawMaterialOrderService {
         return rawMaterialOrderRepository.findAll();
     }
 
+    public RawMaterialOrder findById(Long id){
+        return rawMaterialOrderRepository.findById(id).get();
+    }
+
 }

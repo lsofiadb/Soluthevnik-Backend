@@ -13,20 +13,16 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@IdClass(RawMaterialOrderItemPK.class)
 public class RawMaterialOrderItem {
 
-    @Id @ManyToOne
-    @JoinColumn(name = "raw_material_order_id")
-    private RawMaterialOrder rawMaterialOrder;
-
-    @Id @ManyToOne @JoinColumn(name = "raw_material_id")
-    private RawMaterial rawMaterial;
+    @EmbeddedId
+    private RawMaterialOrderItemPK rawMaterialOrderItemPK;
 
     @Column(name = "q_quantity")
     private Long q_quantity;
 
     @Column(name = "v_unit_price")
     private Double v_unit_price;
+
 
 }
