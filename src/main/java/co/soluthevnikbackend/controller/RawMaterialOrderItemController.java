@@ -7,10 +7,9 @@ import co.soluthevnikbackend.service.RawMaterialOrderItemService;
 import co.soluthevnikbackend.service.RawMaterialOrderService;
 import co.soluthevnikbackend.service.RawMaterialService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/raw_material_order_item")
@@ -34,6 +33,11 @@ public class RawMaterialOrderItemController {
         rawMaterialOrderItemPK.setRawMaterial(rawMaterialService.findById(rawMaterialItemDTO.getRaw_material_id()));
         rawMaterialOrderItem.setRawMaterialOrderItemPK(rawMaterialOrderItemPK);
         return rawMaterialOrderItemService.save(rawMaterialOrderItem);
+    }
+
+    @GetMapping("/findAll")
+    public List<RawMaterialOrderItem> findAll(){
+        return rawMaterialOrderItemService.findAll();
     }
 
 
