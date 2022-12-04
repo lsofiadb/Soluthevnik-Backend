@@ -3,6 +3,8 @@ package co.soluthevnikbackend.service;
 import co.soluthevnikbackend.model.Admin;
 import co.soluthevnikbackend.repository.AdminRepository;
 import co.soluthevnikbackend.utils.Utils;
+import de.mkammerer.argon2.Argon2;
+import de.mkammerer.argon2.Argon2Factory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,10 +23,8 @@ public class AdminService {
         if(!adminRepository.findById(k_id).isEmpty() ){
             Utils utils = new Utils();
             Admin admin = adminRepository.findById(k_id).get();
-            //TO-DO
-            System.out.println(admin.getO_password());
-            System.out.println(utils.getEncodedPassword(password));
-            if(admin.getO_password().equals(utils.getEncodedPassword(password))){
+            Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2i);
+            if(argon2.verify(admin.getO_password(),password)){
                 return true;
             }
             else {
