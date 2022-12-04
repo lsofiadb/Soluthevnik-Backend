@@ -13,14 +13,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@IdClass(SaleOrderItemPK.class)
 public class SaleOrderItem {
 
-    @Id @JoinColumn(name = "product_id") @ManyToOne
-    private Product product;
-
-    @Id @JoinColumn(name = "sale_order_id") @ManyToOne
-    private SaleOrder saleOrder;
+    @EmbeddedId
+    private SaleOrderItemPK saleOrderItemPK;
 
     @Column(name = "q_quantity")
     private Long q_quantity;
