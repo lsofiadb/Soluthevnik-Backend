@@ -2,7 +2,7 @@
 Backend development for Soluthevnik company. 
 
 ## Objective :telescope:
-Allow to the admin user keep track inventory about sales and raw material orders.
+Allow the administrator user to track inventory on sales and raw material orders.
 
 ## Technologies :bulb:
 **Spring Boot, Java 17, Org JSON, Lombok, Oracle 11, Spring Data JPA, Argon2**
