@@ -46,13 +46,14 @@ public class RawMaterialOrderController {
 
         //Order
         RawMaterialOrder rawMaterialOrder = new RawMaterialOrder();
-        rawMaterialOrder.setK_id(raw_material_order_json.getLong("k_id"));
+        //rawMaterialOrder.setK_id(raw_material_order_json.getLong("k_id"));
         rawMaterialOrder.setSupplier(supplierService.findById(raw_material_order_json.getLong("supplier_id")));
         rawMaterialOrder.setAdmin(adminService.findById(raw_material_order_json.getLong("admin_id")));
         Date d_date = new Date();
         rawMaterialOrder.setD_date(d_date);
         rawMaterialOrder.setV_total_price(raw_material_order_json.getDouble("v_total_price"));
         //saving order...
+        System.out.println(rawMaterialOrder);
         rawMaterialOrderService.save(rawMaterialOrder);
 
         System.out.println(rawMaterialOrder);
